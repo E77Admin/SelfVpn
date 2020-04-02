@@ -9,22 +9,5 @@
 2. 需要自动配置统一上网出口（网关）来访问内网应用，并对内网流量做特殊标记
 3. 后台管理系统要针对前端展示做更改操作
 
-## backup
-
-创建VPN服务端
-
-```go
-// @router /vpn [get]
-func (c *WsController) Proxy() {
-	server := shadowproxy.NewServer("D77Admin!@#")
-	s := websocket.Server{
-		Handler: websocket.Handler(server.Handler),
-		Handshake: func(*websocket.Config, *http.Request) (err error){
-			return nil
-		},
-	}
-	s.ServeHTTP(c.Ctx.ResponseWriter, c.Ctx.Request)
-	c.Data["json"] = "exit"
-	c.ServeJSON()
-}
+## 我是SB
 ```
